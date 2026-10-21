@@ -77,11 +77,29 @@ namespace The_task_of_the_tasks
                     activeWeapon++;
                 }
             }
-        }
-        static void Main(string[] args)
-        {
-                
 
         }
+
+        class Weapon
+        {
+            public int id;
+            public int autoink = 0;
+            public string name;
+            public int caliber;
+            public int magazineSlot;
+
+            public Weapon(int id, string name, int caliber, int magazineSlot)
+            {
+                this.id = autoink++;
+                this.name = name;
+                this.caliber = caliber;
+                this.magazineSlot = magazineSlot;
+
+            }
+
+            
+        }
+
+        
     }
 }

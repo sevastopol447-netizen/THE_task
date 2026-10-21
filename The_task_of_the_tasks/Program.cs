@@ -52,9 +52,9 @@ namespace The_task_of_the_tasks
             public string name;
             public int activeWeapon;
             public List<Weapon> weapons;
-            public List<Magazine> magazines;
+            public List<double> magazines;
 
-            public Player (string name, List<Weapon> weapons,  List<Magazine> magazines)
+            public Player (string name, List<Weapon> weapons,  List<double> magazines)
             {
                 this.name = name;
                 this.activeWeapon = 1;
@@ -77,6 +77,15 @@ namespace The_task_of_the_tasks
                     activeWeapon = 1;
                 }
             }
+            public void reload(Weapon Weapon) {
+                if (magazines.Remove(Weapon.caliber)){
+                    Weapon.magazineSlot = true;
+                }
+                else
+                {
+                    Console.WriteLine("No right magasine");
+                }
+            }
 
         }
 
@@ -86,14 +95,14 @@ namespace The_task_of_the_tasks
             public int autoinc = 0;
             public string name;
             public double caliber;
-            public Magazine magazineSlot;
+            public bool magazineSlot;
 
-            public Weapon(string name, double caliber, Magazine magazineSlot)
+            public Weapon(string name, double caliber)
             {
                 this.id = autoinc++;
                 this.name = name;
                 this.caliber = caliber;
-                this.magazineSlot = magazineSlot;
+                this.magazineSlot = false;
             }
         }
 

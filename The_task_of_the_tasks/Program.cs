@@ -51,10 +51,10 @@ namespace The_task_of_the_tasks
         {
             public string name;
             public int activeWeapon;
-            public List<int> weapons;
-            public List<int> magazines;
+            public List<Weapon> weapons;
+            public List<Magazine> magazines;
 
-            public Player (string name, List<int> weapons,  List<int> magazines)
+            public Player (string name, List<Weapon> weapons,  List<Magazine> magazines)
             {
                 this.name = name;
                 this.activeWeapon = 1;
@@ -68,13 +68,13 @@ namespace The_task_of_the_tasks
             }
             public void nextWeapon()
             {
-                if (activeWeapon == 4)
+                if (activeWeapon != 4)
                 {
-                    activeWeapon = 1;
+                    activeWeapon++;
                 }
                 else
                 {
-                    activeWeapon++;
+                    activeWeapon = 1;
                 }
             }
 
@@ -83,23 +83,31 @@ namespace The_task_of_the_tasks
         class Weapon
         {
             public int id;
-            public int autoink = 0;
+            public int autoinc = 0;
             public string name;
-            public int caliber;
-            public int magazineSlot;
+            public double caliber;
+            public Magazine magazineSlot;
 
-            public Weapon(int id, string name, int caliber, int magazineSlot)
+            public Weapon(string name, double caliber, Magazine magazineSlot)
             {
-                this.id = autoink++;
+                this.id = autoinc++;
                 this.name = name;
                 this.caliber = caliber;
                 this.magazineSlot = magazineSlot;
-
             }
-
-            
         }
 
-        
+        class Magazine
+        {
+            public int id;
+            public int autoinc;
+            public double caliber;
+
+            public Magazine(double caliber)
+            {
+                this.id = autoinc++;
+                this.caliber = caliber;
+            }
+        }
     }
 }
